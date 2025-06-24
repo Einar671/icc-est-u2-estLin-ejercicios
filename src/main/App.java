@@ -9,6 +9,7 @@ import utils.StudentValidator;
 public class App {
     public static void main(String[] args) throws Exception {
         // NO MODIFICAR ESTE CÓDIGO
+        //Einar Kaalhus Finalizado 
         var estudiante = StudentValidator.validarDatos();
         System.out.println("👤 Estudiante: " + estudiante.nombre());
         System.out.println("✉️  Correo: " + estudiante.correo());
