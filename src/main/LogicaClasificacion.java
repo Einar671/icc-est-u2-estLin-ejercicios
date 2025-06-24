@@ -37,32 +37,32 @@ public class LogicaClasificacion {
      *         Entrada: "{[()]}"
      *         Salida: true
      */
-    public boolean validarSimbolos(String expresion) {
-        Stack <Character> cStack = new Stack<Character>();
-        for(char c : expresion.toCharArray()){
-            if(c== '(' || c == '[' || c=='{'){
-                cStack.push(c);
-            }else if(c==')'|| c==']' || c=='}'){
-                if(cStack.isEmpty()){
-                    return false;
-                }
-
-                char ultimo = cStack.pop();
-
-                if(!isMatchingPair(ultimo,c)){
-                    return false;
-                }
+public boolean validarSimbolos(String expresion) {
+    if (expresion == null) return false;
+    
+    Stack<Character> cStack = new Stack<>();
+    for (char c : expresion.toCharArray()) {
+        if (c == '(' || c == '[' || c == '{') {
+            cStack.push(c);
+        } else if (c == ')' || c == ']' || c == '}') {
+            if (cStack.isEmpty()) {
+                return false;
             }
-            
+            char ultimo = cStack.pop();
+            if (!isMatchingPair(ultimo, c)) {
+                return false;
+            }
         }
-        return cStack.isEmpty();
     }
+    return cStack.isEmpty();
+}
 
-    private boolean isMatchingPair(char open, char close){
-        return (open == '(' && close == ')') ||
-               (open == '{' && close == '}') ||
-               (open == '[' && close == ']');
-    }
+private boolean isMatchingPair(char open, char close) {
+    return (open == '(' && close == ')') ||
+           (open == '{' && close == '}') ||
+           (open == '[' && close == ']');
+}
+
 
 
 
