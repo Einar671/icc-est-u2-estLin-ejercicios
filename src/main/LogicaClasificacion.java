@@ -19,9 +19,9 @@ public class LogicaClasificacion {
         for(char c : texto.toCharArray()){
             stack.push(c);
         }
-        List<Character> reversa = new ArrayList<Character>();
+        StringBuilder reversa = new StringBuilder();
         while(!stack.isEmpty()){
-            reversa.add(stack.pop());
+            reversa.append(stack.pop());
         }
         return String.valueOf(reversa);
     }
